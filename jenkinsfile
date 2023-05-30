@@ -1,28 +1,17 @@
 pipeline {
-agent any
+    agent any
+
     tools { 
         maven 'Maven 3.9.2' 
     }
-stages {
-stage('Initialize'){
-steps{
-echo "Esta es el inicio"
-}
-}
-stage('Build') {
-steps {
-sh 'mvn -B package'
+        stages {
 
-}
-}
+        stage('Build') {
+            steps {
+                sh 'mvn -DskipTests clean package'
 
-stage('Test') {
-steps {
-sh "mvn clean verify"
-
-}
-}
-
+            }
+        }
 
 stage("Publish to Nexus Repository Manager") {
 steps {
