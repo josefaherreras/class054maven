@@ -17,15 +17,17 @@ pipeline {
       }
     }
 
-    stage('Test') {
+    stage('Build2') {
       steps {
-        sh "mvn clean verify"
+        sh 'mvn -DskipTests clean package'
 
       }
     }
-    stage('Build') {
+
+
+    stage('Test') {
       steps {
-        sh 'mvn -DskipTests clean package'
+        sh "mvn clean verify"
 
       }
     }
@@ -47,7 +49,7 @@ pipeline {
               groupId: pom.groupId,
               version: pom.version,
               repository: "Repositorio1",
-              credentialsId: "NexusCredentials",
+              credentialsId: "NEXUS-ID",
               artifacts: [
                 [artifactId: pom.artifactId,
                   classifier: '',
