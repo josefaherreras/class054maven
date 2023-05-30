@@ -10,24 +10,9 @@ pipeline {
         echo "Esta es el inicio"
       }
     }
-    stage('Build') {
-      steps {
-        sh 'mvn -B package'
-
-      }
-    }
-
     stage('Build2') {
       steps {
         sh 'mvn -DskipTests clean package'
-
-      }
-    }
-
-
-    stage('Test') {
-      steps {
-        sh "mvn clean verify"
 
       }
     }
