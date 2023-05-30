@@ -16,6 +16,11 @@ pipeline {
 
       }
     }
+    stage('Nexus') {
+      steps {
+        echo "Aquí comienza la publicación de nexus"
+      }
+    }
 
     stage("Publish to Nexus Repository Manager") {
       steps {
