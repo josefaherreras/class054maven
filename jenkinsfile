@@ -1,11 +1,10 @@
 pipeline {
-agent any
-  tools {
-    
-    maven "jenkins-maven"
-
-  }
-stages {
+    agent any
+        tools { 
+        maven 'Maven 3.9.2' 
+        jdk 'JDK 1.8'
+        }
+ stages {
 stage('Initialize'){
 steps{
 echo "Esta es el inicio"
